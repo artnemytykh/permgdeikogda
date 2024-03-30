@@ -1,0 +1,29 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Главная
+{% endblock %}
+
+{% block body %}
+<div class="index">
+    <div class="wecan">
+        <div style="color: #FFF8F0; font-size: 36px; font-weight: bold; padding: 10px;">Наш веб-сайт занимается объединением и размешением актуальных событий города перми как для обычных людей, так и для компаний.<br><br> Наш сервис позволяет вам узнать события за прошедший день, неделю или месяц.</div>
+        <img src="{% static 'img/girl.png' %}" height="45%" style="margin-left: 400px;">
+    </div>
+    <div class="index2">
+        <div class="city">
+            <h2>Из жизни города</h2>
+            <a href="{% url 'events' %}"><button>Подробности</button></a>
+        </div>
+        <div class="tour">
+            <h2>Для туристов</h2>
+            <a href="{% url 'events' %}"><button>Подробности</button></a>
+        </div>
+        <div class="busi">
+            <h2>Для владельцев малого бизнеса</h2>
+            <a href="{% url 'events' %}"><button>Подробности</button></a>  
+        </div> 
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %}
+    События
+{% endblock %}
+
+{% block body %}
+<ul class="time">
+    <div class="times">
+        <li><a href="{% url 'day' %}">День</a></li>
+        <li><a href="{% url 'week' %}">Неделя</a></li>
+        <li><a href="{% url 'month' %}" class="checked">Месяц</a></li>
+    </div>
+</ul>
+    <h1>События в Перми за месяц.</h1>
+    {% if events1 and events2 and events3 is not Null %}
+        {% for event1 in events1 %}
+            {% if event1.text != '' %}
+                {% if event1.period == 'month' %}
+                    <div>
+                        <h2 class="header">{{event1.title}}</h2>
+                        <div class="text">{{event1.text|safe}}<img src="{% static 'img/people.png' %}" width="100%"></div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% for event2 in events2 %}
+            {% if event2.text != '' %}
+                {% if event2.period == 'month' %}
+                    <div>
+                        <h2 class="header">{{event2.title}}</h2>
+                        <div class="text">{{event2.text|safe}}<img src="{% static 'img/network.png' %}" width="100%"></div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        {% for event3 in events3 %}
+            {% if event3.text != '' %}
+                {% if event3.period == 'month' %}
+                    <div>
+                        <h2 class="header">{{event3.title}}</h2>
+                        <div class="text">{{event3.text|safe}}<img src="{% static 'img/server.png' %}" width="100%"></div>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'core/layout.html' %}
+
+{% block title %}
+    Обновить
+{% endblock %}
+
+{% block body %}
+    <h1>Обновить события</h1>
+    <form class="gen" action="{% url 'generate' %}" method="POST">
+        {% csrf_token %}
+        <h2>Выберете период событий</h2>
+        <div class="flex">
+            <select name="period">
+                <option value="day">День</option>
+                <option value="week">Неделя</option>
+                <option value="month">Месяц</option>
+            </select>
+            <input type="submit" value="Обновить">
+        </div>
+        
+    </form>
+{% endblock %}

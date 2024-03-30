@@ -1,0 +1,21 @@
+{% extends 'core/layout.html' %}
+{% load static %}
+
+{% block title %}
+    Логин
+{% endblock %}
+
+{% block body %}
+<div class="lginn">
+    <form class="login" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <h2>Логин</h2>
+        <input type="text" name="username" placeholder="ваш логин">
+        <h2>Пароль</h2>
+        <input type="password" name="password" placeholder="ваш пароль"><br>
+        <input type="submit" value="Вход">
+    </form>
+    <img src="{% static 'img/login.png' %}" width="35%">
+</div>
+    
+{% endblock %}
